@@ -221,6 +221,8 @@ public class ShareScreen {
             
             // do not response body to OPTIONS
             if (OPTIONS.equalsIgnoreCase(method) == true) {
+                exch.sendResponseHeaders(200, 0);
+                exch.getResponseBody().flush();
                 exch.close();
                 return;
             }
